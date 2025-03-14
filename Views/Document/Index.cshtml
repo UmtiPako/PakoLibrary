@@ -1,0 +1,58 @@
+﻿<div class="container px-4 px-lg-5 mt-5">
+    <form method="POST" id="form" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" class="form-control" name="Name" id="title" placeholder="Name...">
+        </div>
+        <br/>
+        <div class="form-group">
+            <input type="text" class="form-control" name="ShortDescription" id="shortdesc" placeholder="Short description...">
+        </div>
+        <br/>
+        <label>Picture</label>
+        <div class="form-group">
+            <input type="file" class="form-control" name="PicturePath">
+        </div>
+        <br/>
+        <label>Doc</label>
+        <div class="form-group">
+            <input type="file" class="form-control" name="PDF_Link">
+        </div>
+        <br/>
+        <div class="btn-group-toggle">
+            <button type="button" onclick="Save()" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+        <script>
+            function Save() {
+                var form = document.getElementById("form");
+                var formData = new FormData(form);
+   
+                var data = Object.fromEntries(formData);
+
+                console.log(data);
+
+                var url = '/Document/Save';
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        if (!res.ok) {  // HTTP hatalarını kontrol et
+            throw new Error('Network response was not ok');
+        }
+        return res.json();  // JSON cevabı işleme
+    })
+    .then(result => {
+        alert("Document posted!");
+    })
+    .catch(error => {
+        console.error("Error:", error);  // Hata mesajını konsola yazdır
+    });
+
+            }
+        </script>
+}

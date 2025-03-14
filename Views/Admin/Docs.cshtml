@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PakoLibrary.Models.Document>
+<div class="container px-4 px-lg-5 mt-5">
+        <button class="btn btn-outline-success" type="submit">
+       <a asp-controller="Document" asp-action="Index" 
+       style="text-decoration: none; color: inherit;">Add Doc</a>
+   </button>
+<table class="table table-hover">
+    <thead>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">ShortDescription</th>
+        <th scope="col">Picture</th>
+        <th scope="col">PDF</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                        <tr>
+                            <th scope="row">@item.ID</th>
+                            <td>@item.Name</td>
+                            <td>@item.ShortDescription</td>
+                            <td>@item.PicturePath</td>
+                            <td>@item.PDF_Link</td>
+                            <td>
+                                <a class="btn btn-danger" asp-route-id="@item.ID" asp-controller="Document" asp-action="DeleteDoc">sil</a>
+                            </td>
+                        </tr>
+        }
+    </tbody>
+</table>
+</div>
