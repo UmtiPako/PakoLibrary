@@ -41,16 +41,16 @@
         body: formData
     })
     .then(res => {
-        if (!res.ok) {  // HTTP hatalarını kontrol et
+        if (!res.ok) {  
             throw new Error('Network response was not ok');
         }
-        return res.json();  // JSON cevabı işleme
+        return res.json();  
     })
     .then(result => {
         alert("Document posted!");
     })
     .catch(error => {
-        console.error("Error:", error);  // Hata mesajını konsola yazdır
+        console.error("Error:", error);  
     });
 
             }
