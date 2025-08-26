@@ -2,8 +2,6 @@
 
 The **PakoLibrary** project is an ASP.NET Core MVC–based web application designed for sharing documents. It enables users to upload, manage, categorize, and view documents efficiently.
 
-> This README offers setup instructions, development environment guidance, and contribution guidelines. Keep this updated as your project evolves.
-
 ---
 
 ## 🚀 Features
